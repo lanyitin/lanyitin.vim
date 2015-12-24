@@ -97,6 +97,10 @@ let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>']
 let g:syntastic_python_checkers = ['pep8', 'pyflakes', 'pylint']
 let g:syntastic_javascript_checkers = ['jshint']
 
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPMix'
+let g:ctrlp_working_path_mode = 'ra'
+
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds' : [

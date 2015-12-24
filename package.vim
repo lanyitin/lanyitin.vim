@@ -2,92 +2,89 @@ if has('vim_starting')
     if !has("nvim")
         set nocompatible               " Be iMproved
     endif
-    set runtimepath+=~/.vim/bundle/Vundle.vim/
+    set runtimepath+=~/.vim/bundle/lanyitin.vim
 endif
 
-call vundle#begin(expand('~/.vim/bundle/'))
-
-" Let Plugin manage Plugin
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin(expand('~/.vim/bundle/'))
 
 " My Bundles here:
 
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 
 " Git wrapper
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " code lint
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " Useful snippets
 if executable("python")
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 endif
 
 "Intelligently toggle relative/absolute line number
-Plugin 'myusuf3/numbers.vim'
+Plug 'myusuf3/numbers.vim'
 
 " Code indexing 
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
 
 
 " Theme
-Plugin 'c9s/colorselector.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
+Plug 'c9s/colorselector.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
 
 " Autocomplete
 if executable("gcc") && has("unix")
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 elseif has("lua")
-Plugin("Shougo/neocomplete.vim")
+Plug("Shougo/neocomplete.vim")
 endif
 
 " Read-Eval-Print-Loop
 if has("nvim") != 1
-Plugin 'Shougo/vimshell.vim'
+Plug 'Shougo/vimshell.vim'
 endif
 
 " Tmux integration
 if executable("tmux")
-Plugin 'benmills/vimux'
+Plug 'benmills/vimux'
 endif
 
 " Language related plugins
 " Golang IDE
 if executable("go")
-Plugin 'fatih/vim-go', {'filetypes': 'go'}
-Plugin 'benmills/vimux-golang', {'depends': 'benmills/vimux', 'filetypes': 'go'}
+Plug 'fatih/vim-go', {'filetypes': 'go'}
+Plug 'benmills/vimux-golang', {'depends': 'benmills/vimux', 'filetypes': 'go'}
 endif
 
 " Python
 if executable("nose")
-Plugin 'pitluga/vimux-nose-test', {'filetypes': 'python', 'depends': 'benmills/vimux'}
+Plug 'pitluga/vimux-nose-test', {'filetypes': 'python', 'depends': 'benmills/vimux'}
 endif
 
 " Typescript IDE
 if executable("tsc")
-Plugin 'clausreinke/typescript-tools.vim', {'filetypes': 'typescript'}
-Plugin 'leafgarland/typescript-vim', {'filetypes': 'typescript'}
+Plug 'clausreinke/typescript-tools.vim', {'filetypes': 'typescript'}
+Plug 'leafgarland/typescript-vim', {'filetypes': 'typescript'}
 endif
 
-Plugin 'tpope/vim-markdown', {'filetypes': 'markdown'}
+Plug 'tpope/vim-markdown', {'filetypes': 'markdown'}
 
 " Awesome start page
-Plugin 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 
 " select " ' or tag around the word under course
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 " make % can match more than [ { " '
-Plugin 'tmhedberg/matchit'
+Plug 'tmhedberg/matchit'
 
 " This package itself
-Plugin 'https://bitbucket.org/lanyitin/lanyitin.vim', {'type' : 'git'}
+Plug 'https://github.com/lanyitin/lanyitin.vim'
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on
