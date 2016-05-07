@@ -72,6 +72,7 @@ map <space> /
 map <c-space> ?
 
 set background=dark
+colorscheme jellybeans
 
 
 let g:airline#extensions#tabline#enabled = 1

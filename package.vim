@@ -10,13 +10,14 @@ call plug#begin(expand('~/.vim/bundle/'))
 " My Bundles here:
 
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
+" using fzf instead
 
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
 " code lint
-Plug 'scrooloose/syntastic'
+Plug 'benekastah/neomake'
 
 " Useful snippets
 if executable("python")
@@ -34,20 +35,12 @@ Plug 'scrooloose/nerdtree'
 
 " Theme
 Plug 'c9s/colorselector.vim'
-Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
+Plug 'nanotech/jellybeans.vim'
+
 
 " Autocomplete
-if executable("gcc") && has("unix")
-Plug 'Valloric/YouCompleteMe'
-elseif has("lua")
-Plug("Shougo/neocomplete.vim")
-endif
-
-" Read-Eval-Print-Loop
-if has("nvim") != 1
-Plug 'Shougo/vimshell.vim'
-endif
+Plug 'Shougo/deoplete.nvim'
 
 " Tmux integration
 if executable("tmux")
