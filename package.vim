@@ -40,7 +40,13 @@ Plug 'nanotech/jellybeans.vim'
 
 
 " Autocomplete
-Plug 'Shougo/deoplete.nvim'
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+
+
+Plug 'zchee/deoplete-clang'
 
 " Tmux integration
 if executable("tmux")
@@ -52,6 +58,7 @@ endif
 if executable("go")
 Plug 'fatih/vim-go', {'filetypes': 'go'}
 Plug 'benmills/vimux-golang', {'depends': 'benmills/vimux', 'filetypes': 'go'}
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 endif
 
 " Python
@@ -63,6 +70,7 @@ endif
 if executable("tsc")
 Plug 'clausreinke/typescript-tools.vim', {'filetypes': 'typescript'}
 Plug 'leafgarland/typescript-vim', {'filetypes': 'typescript'}
+Plug 'mhartington/deoplete-typescript'
 endif
 
 Plug 'tpope/vim-markdown', {'filetypes': 'markdown'}

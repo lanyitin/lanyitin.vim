@@ -92,16 +92,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>']
-
-let g:syntastic_python_checkers = ['pep8', 'pyflakes', 'pylint']
-let g:syntastic_javascript_checkers = ['jshint']
-
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlPMix'
-let g:ctrlp_working_path_mode = 'ra'
-
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds' : [
@@ -130,14 +120,15 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
-let g:vimshell_prompt = "% "
-let g:vimshell_secondary_prompt = "> "
-let g:vimshell_user_prompt = 'getcwd()'
-
 let g:startify_bookmarks = ['~/.vimrc', '~/.gvimrc', '~/.vim/bundle/lanyitin.vim/package.vim']
 let g:startify_list_order = ['bookmarks', 'files', 'dir', 'sessions']
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_refresh_always = 1
+let g:neomake_open_list = 1
 
 " auto reload configuration file after save
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost .gvimrc source ~/.gvimrc
 
+autocmd! BufWritePost * Neomake
