@@ -1,6 +1,10 @@
-scriptencoding utf-8
-set encoding=utf-8
-set fileencoding=utf-8
+if has('vim_starting')
+    scriptencoding utf-8
+    set encoding=utf-8
+    set fileencoding=utf-8
+	set runtimepath+=~/.vim/bundle/lanyitin.vim
+endif
+
 source ~/.vim/bundle/lanyitin.vim/package.vim
 source ~/.vim/bundle/lanyitin.vim/utils.vim
 
@@ -125,6 +129,8 @@ let g:startify_list_order = ['bookmarks', 'files', 'dir', 'sessions']
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_refresh_always = 1
+let g:deoplete#enable_smart_case = 1
+
 let g:neomake_open_list = 1
 
 " auto reload configuration file after save

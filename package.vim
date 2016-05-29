@@ -1,10 +1,3 @@
-if has('vim_starting')
-    if !has("nvim")
-        set nocompatible               " Be iMproved
-    endif
-    set runtimepath+=~/.vim/bundle/lanyitin.vim
-endif
-
 call plug#begin(expand('~/.vim/bundle/'))
 
 " My Bundles here:
@@ -45,8 +38,9 @@ function! DoRemote(arg)
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
-
 Plug 'zchee/deoplete-clang'
+
+Plug 'zchee/deoplete-jedi'
 
 " Tmux integration
 if executable("tmux")
@@ -88,4 +82,3 @@ Plug 'tmhedberg/matchit'
 Plug 'https://github.com/lanyitin/lanyitin.vim'
 
 call plug#end()
-filetype plugin indent on
