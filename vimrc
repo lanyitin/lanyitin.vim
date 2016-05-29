@@ -44,7 +44,7 @@ set wildmenu
 set wildignore=*.o,*~,*pyc
 
 " to avoid uncorrect indent after pasting things
-set paste
+" set paste
 
 " highlight current line
 set cursorline
@@ -62,8 +62,6 @@ let mapleader = ','
 noremap <leader>t :TagbarToggle<cr>
 noremap <leader>n :NERDTreeToggle<cr>
 noremap <F1> :Startify<cr>
-noremap <leader>ub :Unite buffer<cr>
-noremap <leader>uf :Unite file<cr>
 
 " Treat long lines as break lines (useful when moving around in them)
 noremap <Up> <NOP>
