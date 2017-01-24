@@ -52,6 +52,8 @@ set wildignore=*.o,*~,*pyc
 set cursorline
 
 
+set title
+
 " set the leader key to comma
 let mapleader = ','
 
@@ -68,13 +70,19 @@ noremap <Right> <NOP>
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
 map <c-space> ?
+imap ;; <Esc>
+nmap ;; :
 
 set background=dark
-colorscheme desert
+colorscheme jellybeans
 
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 0
+if HasFont("Powerline")
+    let g:airline_powerline_fonts = 1
+else
+    let g:airline_powerline_fonts = 0
+endif
 set laststatus=2
 
 " Trigger configuration. Do not use <tab> if you use
@@ -128,7 +136,21 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost .gvimrc source ~/.gvimrc
 
 autocmd! BufWritePost * Neomake
+" remove tailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e<Paste>
 
 " close autocomplete Preview automatically
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" ignores
+set wildignore+=*.o,*.obj,*.pyc                " output objects
+set wildignore+=*.png,*.jpg,*.gif,*.ico        " image format
+set wildignore+=*.swf,*.fla                    " image format
+set wildignore+=*.mp3,*.mp4,*.avi,*.mkv        " media format
+set wildignore+=*.git*,*.hg*,*.svn*            " version control system
+set wildignore+=*sass-cache*
+set wildignore+=*.DS_Store
+set wildignore+=log/**
+set wildignore+=tmp/**
+
