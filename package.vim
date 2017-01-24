@@ -7,7 +7,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'benekastah/neomake'
 
 " Useful snippets
-if executable("python")
+if executable("python") && (has("py") || has("py3"))
 Plug 'honza/vim-snippets' | Plug 'SirVer/ultisnips'
 endif
 
@@ -23,15 +23,22 @@ Plug 'c9s/colorselector.vim'
 Plug 'bling/vim-airline'
 Plug 'nanotech/jellybeans.vim'
 
-" Autocomplete
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-if executable("clang")
-Plug 'zchee/deoplete-clang'
+if has("nvim")
+    " Autocomplete
+    function! DoRemote(arg)
+      UpdateRemotePlugins
+    endfunction
+    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+
+    if executable("clang")
+    Plug 'zchee/deoplete-clang'
+    endif
+    Plug 'zchee/deoplete-jedi'
+else
+    if has("py") || has("py3")
+        Plug 'Valloric/YouCompleteMe'
+    endif
 endif
-Plug 'zchee/deoplete-jedi'
 
 " Language related plugins
 " Golang IDE
@@ -59,7 +66,7 @@ Plug 'tpope/vim-surround'
 Plug 'tmhedberg/matchit'
 
 " This package itself
-Plug 'https://github.com/lanyitin/lanyitin.vim'
+Plug 'lanyitin/lanyitin.vim'
 
 Plug 'junegunn/fzf.vim'
 

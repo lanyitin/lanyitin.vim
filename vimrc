@@ -10,6 +10,8 @@ source ~/.vim/bundle/lanyitin.vim/utils.vim
 
 syntax on
 
+set shortmess=at
+
 " always show current position
 set ruler
 
@@ -49,12 +51,6 @@ set wildignore=*.o,*~,*pyc
 " highlight current line
 set cursorline
 
-" use system clipboard by default
-if has("win32")
-    set clipboard=unnamed
-else
-    set clipboard=unnamedplus
-endif
 
 " set the leader key to comma
 let mapleader = ','
@@ -74,15 +70,11 @@ map <space> /
 map <c-space> ?
 
 set background=dark
-colorscheme jellybeans
+colorscheme desert
 
 
 let g:airline#extensions#tabline#enabled = 1
-if HasFont("Powerline")
-    let g:airline_powerline_fonts = 1
-else
-    let g:airline_powerline_fonts = 0
-endif
+let g:airline_powerline_fonts = 0
 set laststatus=2
 
 " Trigger configuration. Do not use <tab> if you use
