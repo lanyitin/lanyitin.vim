@@ -129,13 +129,9 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_refresh_always = 1
 let g:deoplete#enable_smart_case = 1
 
-let g:neomake_open_list = 1
-
 " auto reload configuration file after save
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost .gvimrc source ~/.gvimrc
-
-autocmd! BufWritePost * Neomake
 
 " close autocomplete Preview automatically
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
