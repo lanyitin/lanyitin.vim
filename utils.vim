@@ -1,5 +1,5 @@
 function! HasFont(name) 
-    if has("win")
+    if has("win32")
         return 0
     endif
     if !executable("fc-list")

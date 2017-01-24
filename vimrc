@@ -136,8 +136,6 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost .gvimrc source ~/.gvimrc
 
 autocmd! BufWritePost * Neomake
-" remove tailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e<Paste>
 
 " close autocomplete Preview automatically
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif

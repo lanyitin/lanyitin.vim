@@ -7,7 +7,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'benekastah/neomake'
 
 " Useful snippets
-if executable("python") && (has("py") || has("py3"))
+if executable("python") && (has("python") || has("python3"))
 Plug 'honza/vim-snippets' | Plug 'SirVer/ultisnips'
 endif
 
@@ -23,35 +23,21 @@ Plug 'c9s/colorselector.vim'
 Plug 'bling/vim-airline'
 Plug 'nanotech/jellybeans.vim'
 
-if has("nvim")
-    " Autocomplete
-    function! DoRemote(arg)
-      UpdateRemotePlugins
-    endfunction
-    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
-    if executable("clang")
-    Plug 'zchee/deoplete-clang'
-    endif
-    Plug 'zchee/deoplete-jedi'
-else
-    if has("py") || has("py3")
-        Plug 'Valloric/YouCompleteMe'
-    endif
+if executable("python") && (has("python") || has("python3"))
+    Plug 'Valloric/YouCompleteMe'
 endif
 
 " Language related plugins
 " Golang IDE
 if executable("go")
 Plug 'fatih/vim-go', {'filetypes': 'go'}
-Plug 'zchee/deoplete-go', { 'do': 'make'}
 endif
 
 " Typescript IDE
 if executable("tsc")
 Plug 'clausreinke/typescript-tools.vim', {'filetypes': 'typescript'}
 Plug 'leafgarland/typescript-vim', {'filetypes': 'typescript'}
-Plug 'mhartington/deoplete-typescript'
 endif
 
 Plug 'tpope/vim-markdown', {'filetypes': 'markdown'}
