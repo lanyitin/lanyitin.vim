@@ -50,8 +50,10 @@ Plug 'tpope/vim-surround'
 
 " make % can match more than [ { " '
 Plug 'tmhedberg/matchit'
+
 if executable("fzf")
     Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf'}
 else
     if has("unix")
         Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -67,7 +69,9 @@ if !has("nvim")
 endif
 
 " Powerful search plugin
-Plug 'wincent/ferret'
+if !exists(":Ag")
+    Plug 'wincent/ferret'
+endif
 
 " This package itself
 Plug 'lanyitin/lanyitin.vim'
