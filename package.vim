@@ -4,7 +4,7 @@ call plug#begin(expand('~/.vim/bundle/'))
 Plug 'tpope/vim-fugitive'
 
 " code lint
-Plug 'benekastah/neomake'
+Plug 'vim-syntastic/syntastic'
 
 " Useful snippets
 if executable("python") && (has("python") || has("python3"))
@@ -51,9 +51,15 @@ Plug 'tpope/vim-surround'
 " make % can match more than [ { " '
 Plug 'tmhedberg/matchit'
 
+Plug 'junegunn/fzf.vim'
+
+" Async IO
+Plug 'tpope/vim-dispatch'
+
+" Powerful search plugin
+Plug 'wincent/ferret'
+
 " This package itself
 Plug 'lanyitin/lanyitin.vim'
-
-Plug 'junegunn/fzf.vim'
 
 call plug#end()
