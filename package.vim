@@ -50,8 +50,11 @@ Plug 'tpope/vim-surround'
 
 " make % can match more than [ { " '
 Plug 'tmhedberg/matchit'
-
-Plug 'junegunn/fzf.vim'
+if has("nvim")
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+else
+    Plug 'kien/ctrlp.vim'
+endif
 
 " Async IO
 Plug 'tpope/vim-dispatch'

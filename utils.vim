@@ -23,3 +23,8 @@ function! CopyMatches(reg)
   execute 'let @'.reg.' = join(hits, "\n") . "\n"'
 endfunction
 command! -register CopyMatches call CopyMatches(<q-reg>)
+
+function! FindDuplicates()
+    /^\(.*\)\n\ze\%(.*\n\)*\1$
+endfunction
+command! -register FindDuplicates call FindDuplicates()
