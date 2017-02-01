@@ -14,9 +14,9 @@ endif
 "Intelligently toggle relative/absolute line number
 Plug 'myusuf3/numbers.vim'
 
-" Code indexing 
+" Code indexing
 Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 " Theme
 Plug 'c9s/colorselector.vim'
@@ -52,11 +52,11 @@ Plug 'tpope/vim-surround'
 Plug 'tmhedberg/matchit'
 
 if executable("fzf")
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
+    Plug 'junegunn/fzf', {'dir': '~/.fzf'}
     Plug 'junegunn/fzf.vim'
 else
     if has("unix")
-        Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+        Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
         Plug 'junegunn/fzf.vim'
     else
         Plug 'kien/ctrlp.vim'
@@ -72,6 +72,16 @@ endif
 if executable("ag") || executable("rg")
     Plug 'wincent/ferret'
 endif
+
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-commentary', {'on': '<Plug>Commentary'}
+Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'rhysd/vim-grammarous'
+Plug 'beloglazov/vim-online-thesaurus'
+Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesEnable' }
+autocmd! User indentLine doautocmd indentLine Syntax
+Plug 'airblade/vim-gitgutter'
 
 " This package itself
 Plug 'lanyitin/lanyitin.vim'
