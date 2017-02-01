@@ -61,6 +61,12 @@ noremap <leader>t :TagbarToggle<cr>
 noremap <leader>n :NERDTreeToggle<cr>
 noremap <F1> :Startify<cr>
 
+if executable("fzf")
+    noremap <F2> :FZF<cr>
+else
+    noremap <F2> :CtrlPMixed<cr>
+endif
+
 " Treat long lines as break lines (useful when moving around in them)
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -74,7 +80,11 @@ imap ;; <Esc>
 nmap ;; :
 
 set background=dark
-colorscheme jellybeans
+if !empty($CMDER_ROOT) || !has('gui')
+    colorscheme desert
+else
+    colorscheme jellybeans
+endif
 
 
 let g:airline#extensions#tabline#enabled = 1
@@ -85,9 +95,13 @@ else
 endif
 set laststatus=2
 
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-b>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -125,13 +139,31 @@ let g:tagbar_type_go = {
 let g:startify_bookmarks = ['~/.vimrc', '~/.gvimrc', '~/.vim/bundle/lanyitin.vim/package.vim']
 let g:startify_list_order = ['bookmarks', 'files', 'dir', 'sessions']
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_refresh_always = 1
-let g:deoplete#enable_smart_case = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
+
+
 
 " auto reload configuration file after save
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost .gvimrc source ~/.gvimrc
+
+" remove tailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
 
 " close autocomplete Preview automatically
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif

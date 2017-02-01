@@ -52,8 +52,8 @@ Plug 'tpope/vim-surround'
 Plug 'tmhedberg/matchit'
 
 if executable("fzf")
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
     Plug 'junegunn/fzf.vim'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf'}
 else
     if has("unix")
         Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -69,7 +69,7 @@ if !has("nvim")
 endif
 
 " Powerful search plugin
-if !exists(":Ag")
+if executable("ag") || executable("rg")
     Plug 'wincent/ferret'
 endif
 
