@@ -1,5 +1,9 @@
 call plug#begin(expand('~/.vim/bundle/'))
 
+Plug 'terryma/vim-multiple-cursors'
+
+Plug 'tpope/vim-eunuch'
+
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
@@ -23,22 +27,6 @@ Plug 'c9s/colorselector.vim'
 Plug 'bling/vim-airline'
 Plug 'nanotech/jellybeans.vim'
 
-
-if executable("python") && (has("python") || has("python3"))
-    Plug 'Valloric/YouCompleteMe'
-endif
-
-" Language related plugins
-" Golang IDE
-if executable("go")
-Plug 'fatih/vim-go', {'filetypes': 'go'}
-endif
-
-" Typescript IDE
-if executable("tsc")
-Plug 'clausreinke/typescript-tools.vim', {'filetypes': 'typescript'}
-Plug 'leafgarland/typescript-vim', {'filetypes': 'typescript'}
-endif
 
 Plug 'tpope/vim-markdown', {'filetypes': 'markdown'}
 
