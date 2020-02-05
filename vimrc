@@ -57,15 +57,10 @@ set title
 " set the leader key to comma
 let mapleader = ','
 
-noremap <leader>t :TagbarToggle<cr>
 noremap <leader>n :NERDTreeToggle<cr>
 noremap <F1> :Startify<cr>
 
-if executable("fzf")
-    noremap <F2> :FZF<cr>
-else
-    noremap <F2> :CtrlPMixed<cr>
-endif
+noremap <F2> :FZF<cr>
 
 " Treat long lines as break lines (useful when moving around in them)
 noremap <Up> <NOP>
@@ -95,68 +90,8 @@ else
 endif
 set laststatus=2
 
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-b>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds' : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin' : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
-
 let g:startify_bookmarks = ['~/.vimrc', '~/.gvimrc', '~/.vim/bundle/lanyitin.vim/package.vim']
 let g:startify_list_order = ['bookmarks', 'files', 'dir', 'sessions']
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
-
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-
-
 
 " auto reload configuration file after save
 autocmd! bufwritepost .vimrc source ~/.vimrc
@@ -180,3 +115,7 @@ set wildignore+=*.DS_Store
 set wildignore+=log/**
 set wildignore+=tmp/**
 
+
+let g:mergetool_layout = 'bmr'
+
+set shell=pwsh.exe

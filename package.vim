@@ -1,25 +1,15 @@
 call plug#begin(expand('~/.vim/bundle/'))
 
-Plug 'terryma/vim-multiple-cursors'
-
-Plug 'tpope/vim-eunuch'
-
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
 " code lint
-Plug 'vim-syntastic/syntastic'
-
-" Useful snippets
-if executable("python") && (has("python") || has("python3"))
-Plug 'honza/vim-snippets' | Plug 'SirVer/ultisnips'
-endif
+Plug 'dense-analysis/ale'
 
 "Intelligently toggle relative/absolute line number
 Plug 'myusuf3/numbers.vim'
 
 " Code indexing
-Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 " Theme
@@ -28,48 +18,12 @@ Plug 'bling/vim-airline'
 Plug 'nanotech/jellybeans.vim'
 
 
-Plug 'tpope/vim-markdown', {'filetypes': 'markdown'}
-
 " Awesome start page
 Plug 'mhinz/vim-startify'
 
-" select " ' or tag around the word under course
-Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf.vim'
 
-" make % can match more than [ { " '
-Plug 'tmhedberg/matchit'
-
-if executable("fzf")
-    Plug 'junegunn/fzf', {'dir': '~/.fzf'}
-    Plug 'junegunn/fzf.vim'
-else
-    if has("unix")
-        Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
-        Plug 'junegunn/fzf.vim'
-    else
-        Plug 'kien/ctrlp.vim'
-    endif
-endif
-
-" Async IO
-if !has("nvim")
-    Plug 'tpope/vim-dispatch'
-endif
-
-" Powerful search plugin
-if executable("ag") || executable("rg")
-    Plug 'wincent/ferret'
-endif
-
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-commentary', {'on': '<Plug>Commentary'}
-Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'rhysd/vim-grammarous'
-Plug 'beloglazov/vim-online-thesaurus'
-Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesEnable' }
-autocmd! User indentLine doautocmd indentLine Syntax
-Plug 'airblade/vim-gitgutter'
+Plug 'samoshkin/vim-mergetool'
 
 " This package itself
 Plug 'lanyitin/lanyitin.vim'
