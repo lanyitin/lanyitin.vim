@@ -21,6 +21,8 @@ Plug 'nanotech/jellybeans.vim'
 " Awesome start page
 Plug 'mhinz/vim-startify'
 
+" Fuzzy search
+Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'samoshkin/vim-mergetool'

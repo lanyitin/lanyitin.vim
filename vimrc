@@ -118,4 +118,4 @@ set wildignore+=tmp/**
 
 let g:mergetool_layout = 'bmr'
 
-set shell=pwsh.exe
+" set shell=pwsh.exe
