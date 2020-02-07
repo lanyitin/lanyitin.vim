@@ -58,8 +58,8 @@ set title
 let mapleader = ','
 
 noremap <leader>n :NERDTreeToggle<cr>
+noremap <leader>g :NERDTreeToggle<cr>
 noremap <F1> :Startify<cr>
-
 noremap <F2> :FZF<cr>
 
 " Treat long lines as break lines (useful when moving around in them)
@@ -75,7 +75,7 @@ imap ;; <Esc>
 nmap ;; :
 
 set background=dark
-if !empty($CMDER_ROOT) || !has('gui')
+if !has('gui')
     colorscheme desert
 else
     colorscheme jellybeans
