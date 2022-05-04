@@ -46,7 +46,7 @@ _G.load_config = function()
 			use_virtual_text = true,
 			lint_events = { 'BufWrite', 'CursorHold' },
 		},
-		ensure_installed = 'maintained',
+		ensure_installed = 'all',
 		highlight = { enable = true },
 		incremental_selection = {
 			enable = true,
@@ -209,14 +209,14 @@ _G.load_config = function()
 
 	require('lualine').setup {
 		options = {
-			theme = 'github'
+			theme = 'github_dark'
 		}
 	}
 
 	require('nvim-web-devicons').setup()
 
 	-- Enable theme
-	require('github-theme').setup()
+	-- require('github-theme').setup()
 end
 
 
